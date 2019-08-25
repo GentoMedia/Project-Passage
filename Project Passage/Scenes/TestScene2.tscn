@@ -1,0 +1,58 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scripts/LevelControl.cs" type="Script" id=1]
+[ext_resource path="res://Prefabs/PassageLabel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Prefabs/LifeCount.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Prefabs/GameText.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Prefabs/Gate.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Prefabs/Passage.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Prefabs/DamageBox.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Prefabs/Jam.tscn" type="PackedScene" id=9]
+
+[node name="TestScene2" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="PassageLabel" parent="." instance=ExtResource( 2 )]
+margin_left = 1.88128
+margin_top = 126.904
+margin_right = 253.881
+margin_bottom = 141.904
+
+[node name="LifeCount" parent="." instance=ExtResource( 3 )]
+margin_left = 1.01477
+margin_top = 0.997368
+margin_right = 29.0148
+margin_bottom = 8.99737
+
+[node name="GameText" parent="." instance=ExtResource( 4 )]
+position = Vector2( 85.8681, 71.3571 )
+
+[node name="Gate" parent="." instance=ExtResource( 5 )]
+position = Vector2( 249.25, 65.5597 )
+nextScenePath = "res://Scenes/TestScene2.tscn"
+
+[node name="Player" parent="." instance=ExtResource( 6 )]
+position = Vector2( 10.5015, 62.9245 )
+
+[node name="Passage" parent="." instance=ExtResource( 7 )]
+position = Vector2( 219.209, 63.188 )
+
+[node name="DamageBox" parent="." instance=ExtResource( 8 )]
+position = Vector2( 58.1985, 72.4112 )
+scale = Vector2( 0.950481, 9.4996 )
+
+[node name="DamageBox2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 113.801, 72.1477 )
+scale = Vector2( 0.950481, 9.4996 )
+
+[node name="DamageBox3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 182.316, 72.9382 )
+scale = Vector2( 0.950481, 9.4996 )
+
+[node name="Jam" parent="." instance=ExtResource( 9 )]
+position = Vector2( 163.87, 70.5666 )
+[connection signal="GameOver" from="Player" to="." method="GameOver"]
+[connection signal="LifeChange" from="Player" to="LifeCount" method="DisplayHearts"]
+[connection signal="Hit" from="Passage" to="Gate" method="OpenGate"]
+[connection signal="Hit" from="Passage" to="PassageLabel" method="OnPassageHit"]

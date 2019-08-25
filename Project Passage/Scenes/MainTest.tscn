@@ -1,3 +1,48 @@
-[gd_scene format=2]
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Scripts/LevelControl.cs" type="Script" id=1]
+[ext_resource path="res://Prefabs/GameText.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Prefabs/LifeCount.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Prefabs/PassageLabel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Prefabs/Gate.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Prefabs/Passage.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Prefabs/Jam.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Prefabs/DamageBox.tscn" type="PackedScene" id=9]
+
+[sub_resource type="Gradient" id=1]
+colors = PoolColorArray( 0.0160217, 0.292969, 0, 1, 0.488281, 0.477478, 0.211716, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+width = 16
 
 [node name="MainTest" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 39.148, 61.841 )
+scale = Vector2( 1, 15.0357 )
+texture = SubResource( 2 )
+
+[node name="GameText" parent="." instance=ExtResource( 2 )]
+
+[node name="LifeCount" parent="." instance=ExtResource( 3 )]
+
+[node name="PassageLabel" parent="." instance=ExtResource( 4 )]
+
+[node name="Gate" parent="." instance=ExtResource( 5 )]
+nextScenePath = "res://Scenes/MainTest.tscn"
+
+[node name="Player" parent="." instance=ExtResource( 6 )]
+
+[node name="Passage" parent="." instance=ExtResource( 7 )]
+passageText = "This is the Text for this label"
+
+[node name="Jam" parent="." instance=ExtResource( 8 )]
+
+[node name="DamageBox" parent="." instance=ExtResource( 9 )]
+[connection signal="GameOver" from="Player" to="." method="GameOver"]
+[connection signal="LifeChange" from="Player" to="LifeCount" method="DisplayHearts"]
+[connection signal="Hit" from="Passage" to="PassageLabel" method="OnPassageHit"]
+[connection signal="Hit" from="Passage" to="Gate" method="OpenGate"]

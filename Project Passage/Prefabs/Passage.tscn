@@ -1,0 +1,41 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scripts/Passage.cs" type="Script" id=1]
+[ext_resource path="res://PixelArt/Passage0.png" type="Texture" id=2]
+[ext_resource path="res://PixelArt/Passage1.png" type="Texture" id=3]
+[ext_resource path="res://PixelArt/Passage2.png" type="Texture" id=4]
+[ext_resource path="res://PixelArt/Passage3.png" type="Texture" id=5]
+[ext_resource path="res://PixelArt/Passage4.png" type="Texture" id=6]
+[ext_resource path="res://PixelArt/Passage5.png" type="Texture" id=7]
+
+
+
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 7.95056, 8.03112 )
+
+[sub_resource type="SpriteFrames" id=16]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 6.0
+} ]
+
+[node name="Passage" type="Area2D"]
+editor/display_folded = true
+position = Vector2( 190.238, 60.1113 )
+z_index = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+passageText = "This is the text we can see on the screen when you collect the passage."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 9 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 16 )
+frame = 2
+playing = true

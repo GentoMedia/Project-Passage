@@ -1,0 +1,56 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Scripts/Player.cs" type="Script" id=1]
+[ext_resource path="res://PixelArt/PlayerMoveDown0.png" type="Texture" id=2]
+[ext_resource path="res://PixelArt/PlayerMoveDown1.png" type="Texture" id=3]
+[ext_resource path="res://PixelArt/PlayerMoveDown2.png" type="Texture" id=4]
+[ext_resource path="res://PixelArt/PlayerMoveDown3.png" type="Texture" id=5]
+[ext_resource path="res://PixelArt/PlayerMoveUp0.png" type="Texture" id=6]
+[ext_resource path="res://PixelArt/PlayerMoveUp1.png" type="Texture" id=7]
+[ext_resource path="res://PixelArt/PlayerMoveUp2.png" type="Texture" id=8]
+[ext_resource path="res://PixelArt/PlayerMoveUp3.png" type="Texture" id=9]
+[ext_resource path="res://PixelArt/PlayerMoveSide0.png" type="Texture" id=10]
+[ext_resource path="res://PixelArt/PlayerMoveSide1.png" type="Texture" id=11]
+[ext_resource path="res://PixelArt/PlayerMoveSide2.png" type="Texture" id=12]
+[ext_resource path="res://PixelArt/PlayerMoveSide3.png" type="Texture" id=13]
+
+
+
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 7.96337, 6.94718 )
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "MoveDown",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "MoveUp",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "MoveSide",
+"speed": 6.0
+} ]
+
+[node name="Player" type="KinematicBody2D"]
+editor/display_folded = true
+position = Vector2( 120.354, 60.5008 )
+z_index = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+speed = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 7 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 8 )
+animation = "MoveSide"

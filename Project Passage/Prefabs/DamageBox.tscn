@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/DamageBox.cs" type="Script" id=1]
+
+
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 7.99384, 7.64828 )
+
+[node name="DamageBox" type="Area2D"]
+editor/display_folded = true
+position = Vector2( 39.1643, 62.2239 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 15 )
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]

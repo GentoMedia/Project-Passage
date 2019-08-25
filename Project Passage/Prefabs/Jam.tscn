@@ -1,0 +1,40 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scripts/Jam.cs" type="Script" id=1]
+[ext_resource path="res://PixelArt/Jam0.png" type="Texture" id=2]
+[ext_resource path="res://PixelArt/Jam1.png" type="Texture" id=3]
+[ext_resource path="res://PixelArt/Jam2.png" type="Texture" id=4]
+[ext_resource path="res://PixelArt/Jam3.png" type="Texture" id=5]
+[ext_resource path="res://PixelArt/Jam4.png" type="Texture" id=6]
+[ext_resource path="res://PixelArt/Jam5.png" type="Texture" id=7]
+
+
+
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 6.98409, 8.00077 )
+
+[sub_resource type="SpriteFrames" id=17]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 6.0
+} ]
+
+[node name="Jam" type="Area2D"]
+editor/display_folded = true
+position = Vector2( 147.54, 28.9261 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 12 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 17 )
+frame = 4
+playing = true
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]
