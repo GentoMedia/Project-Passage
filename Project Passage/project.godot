@@ -15,10 +15,15 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Project Passage"
-run/main_scene="res://Scenes/MainTest.tscn"
-boot_splash/bg_color=Color( 1, 1, 1, 1 )
-config/icon="res://PixelArt/icon.png"
+config/name="A Passage to Pass"
+run/main_scene="res://Scenes/MainMenu.tscn"
+boot_splash/image="res://PixelArt/GentoMediaVertTitle.png"
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
+config/icon="res://PixelArt/PlayerMoveDown0.png"
+
+[autoload]
+
+BGMusic="*res://Scenes/AudioStreamPlayer2D.tscn"
 
 [debug]
 
@@ -28,8 +33,32 @@ settings/fps/force_fps=12
 
 window/size/width=256
 window/size/height=144
+window/size/fullscreen=true
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
+
+[importer_defaults]
+
+texture={
+"compress/bptc_ldr": 0,
+"compress/hdr_mode": 0,
+"compress/lossy_quality": 0.7,
+"compress/mode": 0,
+"compress/normal_map": 0,
+"detect_3d": true,
+"flags/anisotropic": false,
+"flags/filter": false,
+"flags/mipmaps": false,
+"flags/repeat": 0,
+"flags/srgb": 2,
+"process/HDR_as_SRGB": false,
+"process/fix_alpha_border": true,
+"process/invert_color": false,
+"process/premult_alpha": false,
+"size_limit": 0,
+"stream": false,
+"svg/scale": 1.0
+}
 
 [input]
 

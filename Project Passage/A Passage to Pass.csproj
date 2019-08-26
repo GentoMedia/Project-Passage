@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{704E1906-36C4-473A-B7D2-EA0A51907542}</ProjectGuid>
+    <ProjectGuid>{5FE27796-4033-4EE9-8387-19D9015F66DA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <OutputPath>.mono\temp\bin\$(Configuration)</OutputPath>
-    <RootNamespace>ProjectPassage</RootNamespace>
-    <AssemblyName>Project Passage</AssemblyName>
+    <RootNamespace>APassagetoPass</RootNamespace>
+    <AssemblyName>A Passage to Pass</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <BaseIntermediateOutputPath>.mono\temp\obj</BaseIntermediateOutputPath>
     <IntermediateOutputPath>$(BaseIntermediateOutputPath)\$(Configuration)</IntermediateOutputPath>

@@ -27,9 +27,19 @@ custom_fonts/font = SubResource( 1 )
 text = "Game Over"
 
 [node name="PressE" type="Label" parent="GameOver"]
-margin_left = 50.176
-margin_top = 29.3824
-margin_right = 158.176
-margin_bottom = 38.3824
+margin_left = -27.0
+margin_top = 29.0755
+margin_right = 226.0
+margin_bottom = 39.0755
 custom_fonts/font = SubResource( 2 )
-text = "Press 'E' to continue"
+text = "'E' to continue"
+align = 1
+
+[node name="Escape" type="Label" parent="GameOver"]
+margin_left = -27.3585
+margin_top = 58.4148
+margin_right = 226.641
+margin_bottom = 67.4148
+custom_fonts/font = SubResource( 2 )
+text = "'ESC' to quit game"
+align = 1

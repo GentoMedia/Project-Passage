@@ -9,6 +9,7 @@ public class Player : KinematicBody2D
 
     public int MaxLife = 3;
     public int Life = 3;
+    public bool damageFlash;
 
     AnimatedSprite animator;
 
@@ -22,6 +23,13 @@ public class Player : KinematicBody2D
     {
         EmitSignal("LifeChange", Life);
         animator = GetNode("AnimatedSprite") as AnimatedSprite;
+        damageFlash = false;
+    }
+
+    public override void _Process(float delta){
+        if (damageFlash){
+            Visible = !Visible;
+        }
     }
 
     public override void _PhysicsProcess(float delta){
@@ -69,7 +77,7 @@ public class Player : KinematicBody2D
 
         if(Life <= 0){
             GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred("disabled", true);
-            Hide();
+            QueueFree();
             EmitSignal("GameOver");
         }
     }

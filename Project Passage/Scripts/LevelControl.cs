@@ -22,6 +22,9 @@ public class LevelControl : Node2D
         if (gameOverState && Input.IsActionJustPressed("Action")){
             GetTree().ChangeScene(currentStringPath);
         }
+        if (Input.IsActionJustPressed("ui_cancel")){
+            GetTree().Quit();
+        }
     }
 
     void GameOver(){

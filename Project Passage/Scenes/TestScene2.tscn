@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/LevelControl.cs" type="Script" id=1]
 [ext_resource path="res://Prefabs/PassageLabel.tscn" type="PackedScene" id=2]
@@ -7,8 +7,7 @@
 [ext_resource path="res://Prefabs/Gate.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Prefabs/Passage.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Prefabs/DamageBox.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Prefabs/Jam.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Prefabs/Jam.tscn" type="PackedScene" id=8]
 
 [node name="TestScene2" type="Node2D"]
 script = ExtResource( 1 )
@@ -28,7 +27,6 @@ margin_bottom = 9.91084
 [node name="GameText" parent="." instance=ExtResource( 4 )]
 
 [node name="Gate" parent="." instance=ExtResource( 5 )]
-position = Vector2( 249.25, 65.5597 )
 nextScenePath = "res://Scenes/TestScene2.tscn"
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
@@ -37,19 +35,7 @@ position = Vector2( 10.5015, 62.9245 )
 [node name="Passage" parent="." instance=ExtResource( 7 )]
 position = Vector2( 219.209, 63.188 )
 
-[node name="DamageBox" parent="." instance=ExtResource( 8 )]
-position = Vector2( 58.1985, 72.4112 )
-scale = Vector2( 0.950481, 9.4996 )
-
-[node name="DamageBox2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 113.801, 72.1477 )
-scale = Vector2( 0.950481, 9.4996 )
-
-[node name="DamageBox3" parent="." instance=ExtResource( 8 )]
-position = Vector2( 182.316, 72.9382 )
-scale = Vector2( 0.950481, 9.4996 )
-
-[node name="Jam" parent="." instance=ExtResource( 9 )]
+[node name="Jam" parent="." instance=ExtResource( 8 )]
 position = Vector2( 163.87, 70.5666 )
 [connection signal="GameOver" from="Player" to="." method="GameOver"]
 [connection signal="LifeChange" from="Player" to="LifeCount" method="DisplayHearts"]

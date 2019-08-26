@@ -38,9 +38,9 @@ position = Vector2( 10.765, 67.6679 )
 
 [node name="Passage" parent="." instance=ExtResource( 7 )]
 position = Vector2( 204.801, 68.7007 )
+passageText = "Do you remember when you were born?"
 
 [node name="Jam" parent="." instance=ExtResource( 8 )]
-editor/display_folded = false
 position = Vector2( 122.761, 66.8773 )
 
 [node name="Level1Pix" type="Sprite" parent="."]
@@ -69,3 +69,4 @@ polygon = PoolVector2Array( -14.1608, 13.073, 265.156, 11.7512, 268.055, 61.82, 
 [connection signal="Hit" from="Passage" to="PassageLabel" method="OnPassageHit"]
 [connection signal="Hit" from="Passage" to="Gate" method="OpenGate"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="OnBodyEntered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="OnBodyExited"]

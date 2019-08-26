@@ -8,13 +8,10 @@
 [ext_resource path="res://PixelArt/Passage4.png" type="Texture" id=6]
 [ext_resource path="res://PixelArt/Passage5.png" type="Texture" id=7]
 
-
-
-
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7.95056, 8.03112 )
 
-[sub_resource type="SpriteFrames" id=16]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
@@ -33,9 +30,9 @@ __meta__ = {
 passageText = "This is the text we can see on the screen when you collect the passage."
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 9 )
+shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 16 )
-frame = 2
+frames = SubResource( 2 )
+frame = 3
 playing = true

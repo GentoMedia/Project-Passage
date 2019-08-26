@@ -15,8 +15,10 @@ public class Passage : Area2D
 
     public void OnBodyEntered(PhysicsBody2D body){
         if (body is Player){
-            QueueFree();
+            Player player = body as Player;
+            player.GetNode<AudioStreamPlayer2D>("PassageSFX").Play();
             EmitSignal("Hit", passageText);
+            QueueFree();
         }
     }
 

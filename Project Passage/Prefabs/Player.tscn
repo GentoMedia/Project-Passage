@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scripts/Player.cs" type="Script" id=1]
 [ext_resource path="res://PixelArt/PlayerMoveDown0.png" type="Texture" id=2]
@@ -13,14 +13,14 @@
 [ext_resource path="res://PixelArt/PlayerMoveSide1.png" type="Texture" id=11]
 [ext_resource path="res://PixelArt/PlayerMoveSide2.png" type="Texture" id=12]
 [ext_resource path="res://PixelArt/PlayerMoveSide3.png" type="Texture" id=13]
+[ext_resource path="res://Sound/ReviveSFX.wav" type="AudioStream" id=14]
+[ext_resource path="res://Sound/PainSFX.wav" type="AudioStream" id=15]
+[ext_resource path="res://Sound/PassageSFX.wav" type="AudioStream" id=16]
 
-
-
-
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7.96337, 6.94718 )
 
-[sub_resource type="SpriteFrames" id=8]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
@@ -39,7 +39,6 @@ animations = [ {
 } ]
 
 [node name="Player" type="KinematicBody2D"]
-editor/display_folded = true
 position = Vector2( 120.354, 60.5008 )
 z_index = 2
 script = ExtResource( 1 )
@@ -49,8 +48,17 @@ __meta__ = {
 speed = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 7 )
+shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "MoveSide"
+
+[node name="ReviveSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 14 )
+
+[node name="PainSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 15 )
+
+[node name="PassageSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 16 )

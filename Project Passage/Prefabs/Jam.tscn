@@ -8,13 +8,10 @@
 [ext_resource path="res://PixelArt/Jam4.png" type="Texture" id=6]
 [ext_resource path="res://PixelArt/Jam5.png" type="Texture" id=7]
 
-
-
-
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6.98409, 8.00077 )
 
-[sub_resource type="SpriteFrames" id=17]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
@@ -23,7 +20,6 @@ animations = [ {
 } ]
 
 [node name="Jam" type="Area2D"]
-editor/display_folded = true
 position = Vector2( 147.54, 28.9261 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -31,10 +27,10 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 12 )
+shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 17 )
+frames = SubResource( 2 )
 frame = 4
 playing = true
 [connection signal="body_entered" from="." to="." method="OnBodyEntered"]
