@@ -32,6 +32,5 @@ Unzip file.
 Open A Passage to Pass.exe.
 
 
-Open Source under the MIT License. Get the source code at https://github.com/GentoMedia/Project-Passage .
 
 Made with Godot Engine.
