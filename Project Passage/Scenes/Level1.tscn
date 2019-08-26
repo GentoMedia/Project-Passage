@@ -1,0 +1,71 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scripts/LevelControl.cs" type="Script" id=1]
+[ext_resource path="res://Prefabs/PassageLabel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Prefabs/LifeCount.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Prefabs/GameText.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Prefabs/Gate.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Prefabs/Passage.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Prefabs/Jam.tscn" type="PackedScene" id=8]
+[ext_resource path="res://PixelArt/Level1Pix.png" type="Texture" id=9]
+[ext_resource path="res://Scripts/DamageBox.cs" type="Script" id=10]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource( 1 )
+currentStringPath = "res://Scenes/Level1.tscn"
+
+[node name="PassageLabel" parent="." instance=ExtResource( 2 )]
+margin_left = 1.88128
+margin_top = 126.904
+margin_right = 253.881
+margin_bottom = 141.904
+
+[node name="LifeCount" parent="." instance=ExtResource( 3 )]
+margin_left = 1.98197
+margin_top = 1.91084
+margin_right = 29.982
+margin_bottom = 9.91084
+
+[node name="GameText" parent="." instance=ExtResource( 4 )]
+
+[node name="Gate" parent="." instance=ExtResource( 5 )]
+position = Vector2( 249, 72 )
+nextScenePath = "res://Scenes/Level2.tscn"
+
+[node name="Player" parent="." instance=ExtResource( 6 )]
+position = Vector2( 10.765, 67.6679 )
+
+[node name="Passage" parent="." instance=ExtResource( 7 )]
+position = Vector2( 204.801, 68.7007 )
+
+[node name="Jam" parent="." instance=ExtResource( 8 )]
+editor/display_folded = false
+position = Vector2( 122.761, 66.8773 )
+
+[node name="Level1Pix" type="Sprite" parent="."]
+position = Vector2( 128, 72 )
+texture = ExtResource( 9 )
+
+[node name="Area2D" type="Area2D" parent="."]
+editor/display_folded = true
+script = ExtResource( 10 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( 39.3195, 43.3736, 41.6912, 49.171, 37.2113, 56.2861, 39.056, 62.8741, 36.4208, 70.5161, 35.6302, 76.8406, 37.2113, 81.3205, 35.1032, 86.0638, 32.995, 90.5437, 32.468, 95.8141, 25.6165, 98.1857, 28.5152, 100.294, 39.583, 100.294, 39.8465, 92.3883, 42.4817, 88.4355, 42.4817, 78.6853, 47.2251, 73.4149, 47.4886, 63.9281, 47.7521, 54.9685, 49.3333, 44.6912, 48.0157, 40.2113 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( 91.4964, 39.1573, 90.4424, 43.3736, 93.6046, 52.5968, 95.1857, 61.2929, 92.287, 68.935, 92.287, 77.6312, 91.4964, 86.3273, 97.8209, 85.0097, 97.0304, 77.6312, 97.2939, 66.8269, 98.875, 59.7118, 98.6115, 52.0697, 101.247, 48.3805, 100.72, 43.1101 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( 148.153, 50.2251, 146.309, 55.759, 146.572, 68.408, 148.153, 73.4149, 148.153, 84.7462, 155.268, 85.5368, 153.16, 76.0501, 152.633, 59.4483, 152.633, 52.8603, 155.532, 51.5427, 153.16, 48.644 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( -14.1608, 13.073, 265.156, 11.7512, 268.055, 61.82, 242.23, 60.2389, 235.905, 49.9616, 223.52, 39.1573, 209.553, 35.468, 197.168, 33.6233, 183.992, 38.1032, 168.409, 43.8086, 146.045, 47.5899, 128.126, 47.3264, 106.323, 41.9645, 87.8072, 33.8869, 65.7519, 31.5144, 47.6179, 35.51, 32.2501, 43.1939, 20.5705, 46.2675, 0.845592, 46.0088, 0.845592, 88.172, 14.4234, 96.0593, 26.7176, 101.592, 44.237, 102.514, 61.7563, 102.206, 81.7345, 94.2151, 89.9153, 90.8072, 108.475, 85.6091, 126.916, 84.0724, 149.046, 87.1459, 172.712, 91.4489, 187.418, 99.5033, 198.222, 102.139, 219.304, 104.247, 236.028, 100.362, 242.493, 92.1248, 243.284, 84.2192, 267.791, 84.7462, 267.685, 120.033, -17.5417, 121.877 )
+[connection signal="GameOver" from="Player" to="." method="GameOver"]
+[connection signal="LifeChange" from="Player" to="LifeCount" method="DisplayHearts"]
+[connection signal="Hit" from="Passage" to="PassageLabel" method="OnPassageHit"]
+[connection signal="Hit" from="Passage" to="Gate" method="OpenGate"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="OnBodyEntered"]

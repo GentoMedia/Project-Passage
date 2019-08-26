@@ -15,7 +15,7 @@ public class Passage : Area2D
 
     public void OnBodyEntered(PhysicsBody2D body){
         if (body is Player){
-            Hide();
+            QueueFree();
             EmitSignal("Hit", passageText);
         }
     }

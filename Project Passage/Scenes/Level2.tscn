@@ -1,0 +1,83 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scripts/LevelControl.cs" type="Script" id=1]
+[ext_resource path="res://Prefabs/PassageLabel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Prefabs/LifeCount.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Prefabs/GameText.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Prefabs/Gate.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Prefabs/Passage.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Prefabs/Jam.tscn" type="PackedScene" id=8]
+[ext_resource path="res://PixelArt/Level2Pix.png" type="Texture" id=9]
+[ext_resource path="res://Scripts/DamageBox.cs" type="Script" id=10]
+
+[node name="TestScene2" type="Node2D"]
+script = ExtResource( 1 )
+currentStringPath = "res://Scenes/Level2.tscn"
+
+[node name="PassageLabel" parent="." instance=ExtResource( 2 )]
+margin_left = 1.88128
+margin_top = 126.904
+margin_right = 253.881
+margin_bottom = 141.904
+
+[node name="LifeCount" parent="." instance=ExtResource( 3 )]
+margin_left = 1.98197
+margin_top = 1.91084
+margin_right = 29.982
+margin_bottom = 9.91084
+
+[node name="GameText" parent="." instance=ExtResource( 4 )]
+
+[node name="Gate" parent="." instance=ExtResource( 5 )]
+position = Vector2( 249, 72 )
+nextScenePath = "res://Scenes/Level3.tscn"
+
+[node name="Player" parent="." instance=ExtResource( 6 )]
+position = Vector2( 9.27208, 65.9981 )
+
+[node name="Passage" parent="." instance=ExtResource( 7 )]
+position = Vector2( 177.408, 69.0278 )
+
+[node name="Passage2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 149.392, 95.6572 )
+
+[node name="Jam" parent="." instance=ExtResource( 8 )]
+position = Vector2( 194.606, 50.8958 )
+
+[node name="Jam2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 67.9747, 33.3764 )
+
+[node name="Level2Pix" type="Sprite" parent="."]
+position = Vector2( 128, 72 )
+texture = ExtResource( 9 )
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource( 10 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( 31.4849, 82.8532, 40.9161, 86.4593, 47.0187, 87.2914, 38.4196, 90.0653, 31.7623, 98.387, 25.6597, 98.6644, 14.2867, 109.76, 7.35199, 102.548, 10.1259, 95.8905, 17.6154, 91.7297, 28.1562, 86.4593 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( 181.553, 86.1819, 184.881, 101.993, 187.1, 110.315, 203.466, 113.921, 200.692, 99.4966, 192.371, 84.5175 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( 153.259, 45.4056, 151.04, 52.6178, 146.047, 61.2168, 146.047, 73.6993, 154.646, 73.9767, 155.755, 59.8299, 163.522, 47.07 )
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( 87.0474, 47.8309, 86.7904, 58.2404, 79.8507, 67.6218, 79.1958, 74.8089, 87.2401, 77.3054, 88.9045, 65.1003, 96.6714, 50.1212 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( -5.9627, 125.571, 266.434, 124.462, 265.047, 81.1889, 242.856, 82.021, 238.972, 87.8462, 237.308, 93.9488, 229.541, 98.387, 224.825, 102.548, 223.716, 110.87, 213.452, 113.366, 204.576, 117.527, 190.706, 112.534, 181.275, 112.534, 170.457, 111.424, 144.382, 111.147, 133.564, 116.695, 123.301, 116.972, 110.818, 114.753, 100.277, 111.702, 59.5012, 111.979, 56.7273, 113.089, 28.711, 112.534, 11.7902, 112.534, 4.5781, 103.103, 3.19115, 86.4593, 2.63637, 77.3054, 0.972038, 77.5828, 0.417259, 55.669, 3.74593, 54.5595, 11.7902, 33.4779, 34.2588, 25.9884, 49.2378, 20.4406, 70.5968, 13.2285, 88.9045, 12.9511, 96.9488, 12.9511, 106.657, 8.79022, 119.417, 7.12589, 150.208, 6.8485, 165.187, 7.68067, 172.399, 9.62239, 186.823, 3.79721, 204.298, 3.51982, 217.336, 6.29372, 221.774, 3.51982, 235.643, 4.35199, 244.243, 10.7319, 252.009, 16.2797, 252.009, 47.9021, 249.236, 56.7786, 242.023, 57.056, 242.856, 60.3847, 267.821, 60.9394, 260.331, -0.918406, -8.4592, 0.191153 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( 84.7436, 40.9674, 90.2914, 40.9674, 98.8905, 45.1282, 104.993, 45.1282, 114.147, 44.2961, 121.914, 44.5735, 133.564, 39.5804, 142.995, 38.1935, 161.858, 37.9161, 173.231, 42.3543, 181.553, 35.9744, 197.086, 29.0396, 208.737, 29.0396, 216.504, 32.3683, 220.11, 39.5804, 220.11, 47.07, 217.613, 54.0047, 210.124, 59.2751, 209.291, 70.6481, 204.576, 77.3054, 195.977, 81.1889, 189.042, 83.408, 169.902, 84.2401, 155.755, 78.415, 144.105, 78.415, 136.615, 85.0723, 126.629, 85.6271, 123.301, 88.401, 100, 88.1236, 71.9837, 86.4593, 57.8369, 85.0723, 44.5222, 83.6854, 33.4266, 82.021, 27.0466, 76.7506, 28.9884, 62.8812, 35.6457, 53.4499, 46.4639, 45.9604, 55.8951, 43.4639, 55.3404, 48.1795, 52.8439, 51.2308, 44.5222, 51.7856, 38.1422, 55.9464, 35.0909, 61.7716, 32.317, 69.2611, 31.2075, 75.9185, 37.3101, 79.2471, 47.8508, 79.5245, 53.676, 74.2541, 61.4429, 72.8672, 68.1003, 75.3637, 76.422, 76.4732, 86.1306, 79.2471, 95.5618, 77.5828, 102.219, 74.5315, 112.483, 74.8089, 124.133, 78.9697, 137.725, 80.0793, 142.441, 75.9185, 157.697, 75.3637, 172.121, 80.9115, 186.268, 81.1889, 193.203, 75.6411, 193.48, 66.2098, 199.583, 62.8812, 207.072, 56.7786, 210.956, 49.8439, 209.569, 43.1865, 198.196, 38.7483, 184.604, 41.5222, 179.056, 47.9021, 169.902, 47.3474, 159.361, 44.0187, 151.872, 42.6317, 137.725, 47.6247, 124.688, 52.6178, 111.928, 52.6178, 100, 48.4569, 90.5172, 44.3611, 82.5495, 46.1603 )
+[connection signal="GameOver" from="Player" to="." method="GameOver"]
+[connection signal="LifeChange" from="Player" to="LifeCount" method="DisplayHearts"]
+[connection signal="Hit" from="Passage" to="PassageLabel" method="OnPassageHit"]
+[connection signal="Hit" from="Passage" to="Gate" method="OpenGate"]
+[connection signal="Hit" from="Passage2" to="PassageLabel" method="OnPassageHit"]
+[connection signal="Hit" from="Passage2" to="Gate" method="OpenGate"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="OnBodyEntered"]

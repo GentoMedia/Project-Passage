@@ -3,6 +3,8 @@ using System;
 
 public class LevelControl : Node2D
 {
+    [Export]
+    string currentStringPath;
     bool gameOverState = false;
     Label gameOverLabel;
     Player player;
@@ -18,7 +20,7 @@ public class LevelControl : Node2D
 
     public override void _Process(float delta){
         if (gameOverState && Input.IsActionJustPressed("Action")){
-            GetTree().ChangeScene("res://Scenes/MainTest.tscn");
+            GetTree().ChangeScene(currentStringPath);
         }
     }
 

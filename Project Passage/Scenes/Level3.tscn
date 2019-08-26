@@ -1,0 +1,90 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Scripts/LevelControl.cs" type="Script" id=1]
+[ext_resource path="res://Prefabs/PassageLabel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Prefabs/LifeCount.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Prefabs/GameText.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Prefabs/Gate.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Prefabs/Passage.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Prefabs/Jam.tscn" type="PackedScene" id=8]
+[ext_resource path="res://PixelArt/Level3Pix.png" type="Texture" id=9]
+[ext_resource path="res://Scripts/DamageBox.cs" type="Script" id=10]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10.8919, 3.86298 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 3.94337, 15.4591 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 31.1625, 1.67394 )
+
+[node name="Level3" type="Node2D"]
+script = ExtResource( 1 )
+currentStringPath = "res://Scenes/Level3.tscn"
+
+[node name="PassageLabel" parent="." instance=ExtResource( 2 )]
+margin_left = 1.88128
+margin_top = 126.904
+margin_right = 253.881
+margin_bottom = 141.904
+
+[node name="LifeCount" parent="." instance=ExtResource( 3 )]
+margin_left = 1.98197
+margin_top = 1.91084
+margin_right = 29.982
+margin_bottom = 9.91084
+
+[node name="GameText" parent="." instance=ExtResource( 4 )]
+
+[node name="Gate" parent="." instance=ExtResource( 5 )]
+position = Vector2( 249, 72 )
+nextScenePath = "res://Scenes/TestScene2.tscn"
+
+[node name="Player" parent="." instance=ExtResource( 6 )]
+position = Vector2( 11.0855, 72.2681 )
+
+[node name="Passage" parent="." instance=ExtResource( 7 )]
+position = Vector2( 212.7, 33.3971 )
+
+[node name="Passage2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 23.1993, 106.102 )
+
+[node name="Jam" parent="." instance=ExtResource( 8 )]
+position = Vector2( 232.349, 107.22 )
+
+[node name="Level3Pix" type="Sprite" parent="."]
+position = Vector2( 128, 72 )
+texture = ExtResource( 9 )
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource( 10 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+rotation = 0.130243
+polygon = PoolVector2Array( 114.564, 42.0103, 119.34, 77.6884, 58.615, 86.2198, 62.0249, 111.118, 223.196, 90.1538, 219.655, 64.9528, 141.291, 75.0725, 136.688, 39.2209 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 62.8137, 54.488 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 173.123, 71.9368 )
+shape = SubResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( 50.9564, 52.0544, 4.98532, 52.1239, 4.84644, 16.708, 251.287, 16.5899, 251.519, 52.0805, 161.864, 52.1964, 162.096, 55.7919, 240.848, 55.7919, 241.196, 61.359, 269.612, 61.359, 269.557, 1.74663, -9.70987, 0.999444, -8.16532, 144.054, 271.444, 143.879, 271.468, 82.4678, 241.428, 82.4678, 241.428, 88.2669, 131.232, 88.0952, 131.302, 91.7062, 251.229, 91.7062, 251.229, 119.136, 4.70755, 119.136, 4.84643, 91.7757, 106.719, 91.6368, 106.65, 88.1646, 0.81876, 88.0952, 0.81876, 55.8043, 50.7481, 55.8043 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 106.541, 53.9717 )
+shape = SubResource( 3 )
+[connection signal="GameOver" from="Player" to="." method="GameOver"]
+[connection signal="LifeChange" from="Player" to="LifeCount" method="DisplayHearts"]
+[connection signal="Hit" from="Passage" to="PassageLabel" method="OnPassageHit"]
+[connection signal="Hit" from="Passage" to="Gate" method="OpenGate"]
+[connection signal="Hit" from="Passage2" to="PassageLabel" method="OnPassageHit"]
+[connection signal="Hit" from="Passage2" to="Gate" method="OpenGate"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="OnBodyEntered"]

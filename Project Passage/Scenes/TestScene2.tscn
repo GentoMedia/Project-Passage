@@ -20,13 +20,12 @@ margin_right = 253.881
 margin_bottom = 141.904
 
 [node name="LifeCount" parent="." instance=ExtResource( 3 )]
-margin_left = 1.01477
-margin_top = 0.997368
-margin_right = 29.0148
-margin_bottom = 8.99737
+margin_left = 1.98197
+margin_top = 1.91084
+margin_right = 29.982
+margin_bottom = 9.91084
 
 [node name="GameText" parent="." instance=ExtResource( 4 )]
-position = Vector2( 85.8681, 71.3571 )
 
 [node name="Gate" parent="." instance=ExtResource( 5 )]
 position = Vector2( 249.25, 65.5597 )
@@ -54,5 +53,5 @@ scale = Vector2( 0.950481, 9.4996 )
 position = Vector2( 163.87, 70.5666 )
 [connection signal="GameOver" from="Player" to="." method="GameOver"]
 [connection signal="LifeChange" from="Player" to="LifeCount" method="DisplayHearts"]
-[connection signal="Hit" from="Passage" to="Gate" method="OpenGate"]
 [connection signal="Hit" from="Passage" to="PassageLabel" method="OnPassageHit"]
+[connection signal="Hit" from="Passage" to="Gate" method="OpenGate"]
