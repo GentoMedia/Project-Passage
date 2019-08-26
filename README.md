@@ -15,10 +15,16 @@ Thank you for playing!
 Controls:
 
 'W' - Up
+
 'A' - Left
+
 'S' - Down
+
 'D' - Right
+
 'ESC' - Close game
+
+
 Download Instructions:
 
 Download A Passage to Pass.zip below.
