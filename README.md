@@ -27,7 +27,7 @@ Controls:
 
 Download Instructions:
 
-Download A Passage to Pass.zip below.
+Download zip file.
 Unzip file.
 Open A Passage to Pass.exe.
 
